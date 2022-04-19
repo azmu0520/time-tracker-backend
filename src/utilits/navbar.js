@@ -31,32 +31,27 @@ export const data = [
     path: '/connecting',
     Component: Generic,
   },
+
   {
     id: 6,
-    title: 'Доставка',
-    path: '/delivery',
-    Component: Generic,
-  },
-  {
-    id: 7,
     title: 'Доп. сервис',
     path: '/add',
     Component: Generic,
   },
   {
-    id: 8,
+    id: 7,
     title: 'Наши гарантии',
     path: '/guarantees',
     Component: Generic,
   },
   {
-    id: 9,
+    id: 8,
     title: 'Почему мы?',
     path: '/why-us',
     Component: Generic,
   },
   {
-    id: 10,
+    id: 9,
     title: 'Контакты',
     path: '/contacts',
     Component: Generic,
