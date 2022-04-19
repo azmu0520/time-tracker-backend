@@ -6,7 +6,9 @@ import { ReactComponent as what } from '../../assets/icons/whatsapp.svg';
 import { ReactComponent as telegram } from '../../assets/icons/telegram.svg';
 import { ReactComponent as cart } from '../../assets/icons/cart.svg';
 import logo from '../../assets/imgs/logo.png';
-export const Wrap = styled.div``;
+export const Wrap = styled.div`
+  box-sizing: border-box;
+`;
 Wrap.Nav = styled.nav`
   display: flex;
   align-items: center;
@@ -111,7 +113,6 @@ Sort.Input = styled.input`
   font-size: 14px;
   line-height: 25px;
   color: #6e6e6e;
-  padding: 0 20px;
 `;
 
 Sort.Search = styled(search)`
