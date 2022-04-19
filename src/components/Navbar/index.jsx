@@ -31,6 +31,25 @@ const Navbar = () => {
             <Sort.Tip>{item}</Sort.Tip>
           ))}
         </Sort.Wrap>
+        <Sort.InputWrap>
+          <Sort.Input />
+          <Sort.Search />
+        </Sort.InputWrap>
+        <Sort.ContactWrap>
+          <Sort.What />
+          <Sort.Telegram />
+          <Sort.Tel>
+            <span>+7(495)150-95-55</span>
+            <p>9:00 - 22:00 без выходных</p>
+          </Sort.Tel>
+        </Sort.ContactWrap>
+        <Sort.KorzinkaWrap>
+          <Sort.Cart />
+          <div className='kor'>
+            <span>Корзина</span>
+            <p>7500 ₽</p>
+          </div>
+        </Sort.KorzinkaWrap>
       </Sort>
       <Outlet />
     </Wrap>

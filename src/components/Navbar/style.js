@@ -1,6 +1,10 @@
 import styled from 'styled-components';
 import { ReactComponent as location } from '../../assets/icons/location.svg';
 import { ReactComponent as user } from '../../assets/icons/user.svg';
+import { ReactComponent as search } from '../../assets/icons/search.svg';
+import { ReactComponent as what } from '../../assets/icons/whatsapp.svg';
+import { ReactComponent as telegram } from '../../assets/icons/telegram.svg';
+import { ReactComponent as cart } from '../../assets/icons/cart.svg';
 import logo from '../../assets/imgs/logo.png';
 export const Wrap = styled.div``;
 Wrap.Nav = styled.nav`
@@ -51,12 +55,14 @@ Wrap.User = styled(user)``;
 
 export const Sort = styled.div`
   display: flex;
-  align-content: center;
+  align-items: center;
+  padding: 5px 120px;
 `;
 
 Sort.Logo = styled.div`
   width: 150px;
   height: 65px;
+  flex: 1;
   background-image: url(${logo});
   background-position: center;
   background-repeat: no-repeat;
@@ -65,7 +71,27 @@ Sort.Logo = styled.div`
 
 Sort.Wrap = styled.div`
   display: flex;
+  flex: 1.7;
   align-items: center;
+  justify-content: space-evenly;
+  position: relative;
+`;
+
+Sort.InputWrap = styled.div`
+  flex: 2.2;
+  position: relative;
+`;
+Sort.ContactWrap = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex: 1.7;
+`;
+Sort.KorzinkaWrap = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex: 0.8;
 `;
 Sort.Tip = styled.div`
   font-weight: 400;
@@ -75,4 +101,34 @@ Sort.Tip = styled.div`
   color: #000000;
 `;
 
-Sort.Input = styled.input``;
+Sort.Input = styled.input`
+  width: 100%;
+  height: 38px;
+  border: 1px solid #e5e5e5;
+  border-radius: 2px;
+  outline: none;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 25px;
+  color: #6e6e6e;
+  padding: 0 20px;
+`;
+
+Sort.Search = styled(search)`
+  position: absolute;
+  top: 8px;
+  right: 10px;
+`;
+
+Sort.What = styled(what)`
+  margin-bottom: auto;
+`;
+Sort.Telegram = styled(telegram)`
+  margin-bottom: auto;
+`;
+Sort.Cart = styled(cart)``;
+
+Sort.Tel = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
