@@ -1,10 +1,10 @@
-import React from 'react';
-import { Wrap, Sort } from './style';
-import { data } from '../../utilits/navbar';
-import { Link, Outlet, useLocation } from 'react-router-dom';
+import React from "react";
+import { Wrap, Sort } from "./style";
+import { data } from "../../utilits/navbar";
+import { Link, Outlet, useLocation } from "react-router-dom";
 const Navbar = () => {
   const location = useLocation();
-  const tip = ['Техника', 'Мебель', 'Инструменты'];
+  const tip = ["Техника", "Мебель", "Инструменты"];
   return (
     <Wrap>
       <Wrap.Nav>
@@ -14,7 +14,7 @@ const Navbar = () => {
         <Wrap.Ul>
           {data.map(({ id, path, title }) => (
             <Wrap.Li key={id} active={path === location?.pathname}>
-              <Link className='link' to={path}>
+              <Link className="link" to={path}>
                 {title}
               </Link>
             </Wrap.Li>
@@ -28,7 +28,7 @@ const Navbar = () => {
         <Sort.Logo />
         <Sort.Wrap>
           {tip.map((item) => (
-            <Sort.Tip>{item}</Sort.Tip>
+            <Sort.Tip key={item}>{item}</Sort.Tip>
           ))}
         </Sort.Wrap>
         <Sort.InputWrap>
@@ -45,7 +45,7 @@ const Navbar = () => {
         </Sort.ContactWrap>
         <Sort.KorzinkaWrap>
           <Sort.Cart />
-          <div className='kor'>
+          <div className="kor">
             <span>Корзина</span>
             <p>7500 ₽</p>
           </div>
