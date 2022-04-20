@@ -1,11 +1,11 @@
-import React from 'react';
-import { Wrap } from './style';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Pagination } from 'swiper';
-import { Navigation } from 'swiper';
-import img1 from '../../assets/imgs/home1.png';
-import img2 from '../../assets/imgs/home2.png';
-import img3 from '../../assets/imgs/home3.png';
+import React from "react";
+import { Wrap } from "./style";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Pagination } from "swiper";
+import { Navigation } from "swiper";
+import img1 from "../../assets/imgs/home1.png";
+import img2 from "../../assets/imgs/home2.png";
+import img3 from "../../assets/imgs/home3.png";
 const Home = () => {
   return (
     <Wrap>
@@ -15,7 +15,7 @@ const Home = () => {
         }}
         navigation={true}
         modules={[Navigation, Pagination]}
-        className='mySwiper'
+        className="mySwiper"
       >
         <SwiperSlide>
           <Wrap.BigChop />
@@ -23,9 +23,9 @@ const Home = () => {
           <Wrap.Wrap>
             <div
               style={{
-                display: 'flex',
-                marginTop: '13%',
-                flexDirection: 'column',
+                display: "flex",
+                marginTop: "13%",
+                flexDirection: "column",
               }}
             >
               <Wrap.Title>Большой выбор стиральных машин</Wrap.Title>
@@ -33,9 +33,9 @@ const Home = () => {
               <Wrap.Btn>Подробнее</Wrap.Btn>
             </div>
             <Wrap.Imgs>
-              <img src={img1} alt='img' />
-              <img src={img2} className='ikki' alt='img' />
-              <img src={img3} alt='img' className='uch' />
+              <img src={img1} alt="img" />
+              <img src={img2} className="ikki" alt="img" />
+              <img src={img3} alt="img" className="uch" />
             </Wrap.Imgs>
           </Wrap.Wrap>
         </SwiperSlide>
