@@ -7,11 +7,12 @@ import Home from "../../components/Home";
 import { data } from "../../mock/card";
 import { Container } from "./style";
 import Footer from "../../components/Footer";
+import Catalog from "../../components/Catalog";
 
 export const HomePage = () => {
   return (
     <Container>
-      {/* <Home /> */}
+      <Home />
       <Container.Wrapper>
         {data.map((value) => {
           return <Card key={value?.id} data={value} />;
@@ -19,6 +20,7 @@ export const HomePage = () => {
       </Container.Wrapper>
       <Advert />
       <About />
+      <Catalog />
       <Benefit />
       <Footer />
     </Container>
