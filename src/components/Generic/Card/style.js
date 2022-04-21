@@ -7,7 +7,7 @@ export const Container = styled.div`
   margin-bottom: ${({ mb }) => mb && `${mb}px`};
   margin-left: ${({ ml }) => ml && `${ml}px`};
   margin-right: ${({ mr }) => mr && `${mr}px`};
-  width: 305.4px;
+  width: 340.4px;
   padding: 10px 0px;
   position: relative;
   padding: 20px;
