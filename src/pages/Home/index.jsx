@@ -10,6 +10,7 @@ import Footer from "../../components/Footer";
 import Catalog from "../../components/Catalog";
 import Register from "../../components/Register";
 import Login from "../../components/Login";
+import News from "../../components/News";
 
 export const HomePage = () => {
   return (
@@ -24,6 +25,7 @@ export const HomePage = () => {
       </Container.Wrapper>
       <Advert />
       <About />
+      <News />
       <Catalog />
       <Benefit />
       <Footer />
