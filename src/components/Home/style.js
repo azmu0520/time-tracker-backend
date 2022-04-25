@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Wrap = styled.div`
-  padding: 0 120px;
+  padding: 0 260px;
   .mySwiper {
     height: 462px;
     background: radial-gradient(

@@ -13,7 +13,7 @@ Wrap.Nav = styled.nav`
   display: flex;
   align-items: center;
   height: 40px;
-  padding: 0 120px;
+  padding: 0 260px;
   border-bottom: 1px solid #e5e5e5;
 `;
 
@@ -58,7 +58,7 @@ Wrap.User = styled(user)``;
 export const Sort = styled.div`
   display: flex;
   align-items: center;
-  padding: 5px 120px;
+  padding: 5px 260px;
 `;
 
 Sort.Logo = styled.div`

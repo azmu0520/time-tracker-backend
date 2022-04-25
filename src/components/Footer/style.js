@@ -9,7 +9,7 @@ export const Container = styled.div``;
 
 export const Wrap = styled.div`
   display: flex;
-  padding: 20px 120px;
+  padding: 20px 260px;
   border-top: 1px solid #e5e5e5;
   border-bottom: 1px solid #e5e5e5;
   @media (max-width: 1400px) {
@@ -53,7 +53,7 @@ Box.Header = styled.div`
 Box.Title = styled.div`
   font-style: normal;
   font-weight: 400;
-  font-size: 15px;
+  font-size: 14px;
   line-height: 20px;
   color: #404040;
   margin-top: 30px;

@@ -27,6 +27,9 @@ export const HomePage = () => {
       <Catalog />
       <Benefit />
       <Footer />
+      <Container.Circle href="#top">
+        <Container.Arrow />
+      </Container.Circle>
     </Container>
   );
 };
