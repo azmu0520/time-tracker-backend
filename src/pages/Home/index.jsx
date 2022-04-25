@@ -8,10 +8,14 @@ import { data } from "../../mock/card";
 import { Container } from "./style";
 import Footer from "../../components/Footer";
 import Catalog from "../../components/Catalog";
+import Register from "../../components/Register";
+import Login from "../../components/Login";
 
 export const HomePage = () => {
   return (
     <Container>
+      <Register />
+      <Login />
       <Home />
       <Container.Wrapper>
         {data.map((value) => {
