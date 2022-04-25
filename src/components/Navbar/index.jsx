@@ -6,7 +6,7 @@ const Navbar = () => {
   const location = useLocation();
   const tip = ["Техника", "Мебель", "Инструменты"];
   return (
-    <Wrap>
+    <Wrap id="top">
       <Wrap.Nav>
         <Wrap.Location>
           <Wrap.LocationIcon /> Москва

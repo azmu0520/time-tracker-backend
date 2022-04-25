@@ -2,7 +2,7 @@ import styled from "styled-components";
 import airpods from "../../assets/imgs/airpods.png";
 
 export const Container = styled.div`
-  padding: 0px 120px;
+  padding: 0px 260px;
 `;
 
 export const Box = styled.div`
