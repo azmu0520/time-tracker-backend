@@ -1,10 +1,10 @@
-import styled from "styled-components";
-import { ReactComponent as arrow } from "../../assets/icons/arrow-top.svg";
+import styled from 'styled-components';
+import { ReactComponent as arrow } from '../../assets/icons/arrow-top.svg';
 
 export const Container = styled.div``;
 
 Container.Wrapper = styled.div`
-  padding: 0px 260px;
+  /* padding: 0px 260px; */
   margin: 60px 0px;
   display: flex;
   align-items: center;

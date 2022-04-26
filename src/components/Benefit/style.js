@@ -1,11 +1,11 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const Container = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 60%;
-  margin: 100px auto 0px auto;
+  /* width: 60%;
+  margin: 100px auto 0px auto; */
 `;
 
 export const Card = styled.div`

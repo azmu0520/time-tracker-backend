@@ -1,15 +1,15 @@
-import styled from "styled-components";
-import logo from "../../assets/imgs/logo.png";
-import { ReactComponent as telegram } from "../../assets/icons/telegram.svg";
-import { ReactComponent as whatsapp } from "../../assets/icons/whatsapp.svg";
-import { ReactComponent as w } from "../../assets/icons/w.svg";
-import { ReactComponent as odnoclassnik } from "../../assets/icons/odnoklassniki.svg";
+import styled from 'styled-components';
+import logo from '../../assets/imgs/logo.png';
+import { ReactComponent as telegram } from '../../assets/icons/telegram.svg';
+import { ReactComponent as whatsapp } from '../../assets/icons/whatsapp.svg';
+import { ReactComponent as w } from '../../assets/icons/w.svg';
+import { ReactComponent as odnoclassnik } from '../../assets/icons/odnoklassniki.svg';
 
 export const Container = styled.div``;
 
 export const Wrap = styled.div`
   display: flex;
-  padding: 20px 260px;
+  /* padding: 20px 260px; */
   border-top: 1px solid #e5e5e5;
   border-bottom: 1px solid #e5e5e5;
   @media (max-width: 1400px) {
@@ -29,7 +29,7 @@ export const Wrap = styled.div`
 
 export const Box = styled.div`
   flex: 1;
-  flex-shrink: ${({ first }) => first && "1"};
+  flex-shrink: ${({ first }) => first && '1'};
   @media (max-width: 1100px) {
     margin: 20px 0px;
   }

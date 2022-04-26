@@ -1,7 +1,7 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const Container = styled.div`
-  padding: 30px 260px;
+  /* padding: 30px 260px; */
 `;
 
 Container.Header = styled.div`

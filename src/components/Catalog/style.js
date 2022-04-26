@@ -1,8 +1,8 @@
-import styled from "styled-components";
-import { ReactComponent as arrow } from "../../assets/icons/arrow.svg";
+import styled from 'styled-components';
+import { ReactComponent as arrow } from '../../assets/icons/arrow.svg';
 
 export const Container = styled.div`
-  padding: 0px 260px;
+  /* padding: 0px 260px; */
 `;
 
 Container.Header = styled.div`

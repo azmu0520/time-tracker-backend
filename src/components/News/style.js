@@ -1,7 +1,7 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const Container = styled.div`
-  padding: 0px 260px;
+  /* padding: 0px 260px; */
   margin: 70px 0px;
 `;
 
@@ -24,8 +24,8 @@ export const Grid = styled.div`
   grid-template-rows: repeat(2, 248px);
   grid-gap: 19px;
   grid-template-areas:
-    "first second four four"
-    "first third five six";
+    'first second four four'
+    'first third five six';
   margin-left: -30px;
 `;
 
