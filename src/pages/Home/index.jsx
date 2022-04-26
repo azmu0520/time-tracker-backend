@@ -1,33 +1,11 @@
-import React from 'react';
-import Advert from '../../components/Advert';
-import About from '../../components/About';
-import Benefit from '../../components/Benefit';
-import Card from '../../components/Generic/Card';
-import Home from '../../components/Home';
-import { data } from '../../mock/card';
-import { Container } from './style';
-import Footer from '../../components/Footer';
-import Catalog from '../../components/Catalog';
-import News from '../../components/News';
+import React from "react";
+import Home from "../../components/Home";
+import { Container } from "./style";
 
 export const HomePage = () => {
   return (
     <Container>
       <Home />
-      <Container.Wrapper>
-        {data.map((value) => {
-          return <Card key={value?.id} data={value} />;
-        })}
-      </Container.Wrapper>
-      <Advert />
-      <About />
-      <News />
-      <Catalog />
-      <Benefit />
-      <Footer />
-      <Container.Circle href='#top'>
-        <Container.Arrow />
-      </Container.Circle>
     </Container>
   );
 };

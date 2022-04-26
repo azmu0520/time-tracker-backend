@@ -1,5 +1,5 @@
 import React from "react";
-import { benefitData } from "../../mock/benefit";
+import { benefitData } from "../../../mock/benefit";
 import { Card, Container } from "./style";
 
 export const Benefit = () => {

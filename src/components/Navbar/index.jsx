@@ -1,16 +1,18 @@
-import React, { useState } from 'react';
-import { Wrap, Sort, Boxs, Flexing, Modals, style } from './style';
-import { data } from '../../utilits/navbar';
-import { Link, Outlet, useLocation } from 'react-router-dom';
-import Button from '@mui/material/Button';
-import TextField from '@mui/material/TextField';
-import Checkbox from '@mui/material/Checkbox';
+import React, { useState } from "react";
+import { Wrap, Sort, Boxs, Flexing, Modals, style } from "./style";
+import { data } from "../../utilits/navbar";
+import { Link, Outlet, useLocation } from "react-router-dom";
+import Button from "@mui/material/Button";
+import TextField from "@mui/material/TextField";
+import Checkbox from "@mui/material/Checkbox";
+import Footer from "../Footer";
 
 const Navbar = () => {
   const location = useLocation();
-  const tip = ['Техника', 'Мебель', 'Инструменты'];
+  const tip = ["Техника", "Мебель", "Инструменты"];
   const [modal, setModal] = useState(false);
-  const [modalName, setModalName] = useState('');
+  const [modalName, setModalName] = useState("");
+  const [arrow, setArrow] = useState(0);
   const handleClose = () => {
     setModal(false);
   };
@@ -18,29 +20,33 @@ const Navbar = () => {
     setModalName(name);
     setModal(true);
   };
-  const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
+  const label = { inputProps: { "aria-label": "Checkbox demo" } };
+
+  window.addEventListener("scroll", () => {
+    setArrow(window.scrollY);
+  });
 
   return (
-    <Wrap id='top'>
+    <Wrap id="top">
       <Modals
         keepMounted
         open={modal}
         onClose={handleClose}
-        aria-labelledby='keep-mounted-modal-title'
-        aria-describedby='keep-mounted-modal-description'
+        aria-labelledby="keep-mounted-modal-title"
+        aria-describedby="keep-mounted-modal-description"
       >
         <Boxs sx={style}>
-          {modalName === 'register' && (
+          {modalName === "register" && (
             <>
               <Modals.Header>Ro‘yxatdan o‘tish</Modals.Header>
               <Modals.Cancel onClick={handleClose} />
-              <TextField id='demo-helper-text-aligned' label='Ismingiz' />
-              <TextField id='demo-helper-text-aligned' label='Familyangiz' />
-              <TextField id='demo-helper-text-aligned' label='Telefongiz' />
-              <TextField id='demo-helper-text-aligned' label='Parolingiz' />
+              <TextField id="demo-helper-text-aligned" label="Ismingiz" />
+              <TextField id="demo-helper-text-aligned" label="Familyangiz" />
+              <TextField id="demo-helper-text-aligned" label="Telefongiz" />
+              <TextField id="demo-helper-text-aligned" label="Parolingiz" />
               <TextField
-                id='demo-helper-text-aligned'
-                label='Parolingiz takrorlang'
+                id="demo-helper-text-aligned"
+                label="Parolingiz takrorlang"
               />
               <Flexing main>
                 <Flexing>
@@ -53,27 +59,27 @@ const Navbar = () => {
                   Parolni unitdingizmi?
                 </Flexing.CheckboxItem>
               </Flexing>
-              <Button variant='contained' disableElevation>
+              <Button variant="contained" disableElevation>
                 Ro'yhatdan o`tish
               </Button>
               <Modals.FooterItem>
                 Allaqachon ro‘yxatdan o’tganmisiz?
-                <br />{' '}
+                <br />{" "}
                 <span
-                  onClick={() => handleOpen('login')}
-                  style={{ color: '#1D72D2' }}
+                  onClick={() => handleOpen("login")}
+                  style={{ color: "#1D72D2" }}
                 >
                   Kirish
                 </span>
               </Modals.FooterItem>
             </>
           )}
-          {modalName === 'login' && (
+          {modalName === "login" && (
             <>
               <Modals.Header>Tizimga Kirish</Modals.Header>
               <Modals.Cancel onClick={handleClose} />
-              <TextField id='demo-helper-text-aligned' label='Ismingiz' />
-              <TextField id='demo-helper-text-aligned' label='Parolingiz' />
+              <TextField id="demo-helper-text-aligned" label="Ismingiz" />
+              <TextField id="demo-helper-text-aligned" label="Parolingiz" />
               <Flexing main>
                 <Flexing>
                   <Checkbox {...label} />
@@ -85,15 +91,15 @@ const Navbar = () => {
                   Parolni unitdingizmi?
                 </Flexing.CheckboxItem>
               </Flexing>
-              <Button variant='contained' disableElevation>
+              <Button variant="contained" disableElevation>
                 Kirish
               </Button>
               <Modals.FooterItem>
                 Allaqachon ro‘yxatdan o’tganmisiz?
                 <br />
                 <span
-                  onClick={() => handleOpen('register')}
-                  style={{ color: '#1D72D2' }}
+                  onClick={() => handleOpen("register")}
+                  style={{ color: "#1D72D2" }}
                 >
                   Ro‘yxatdan o‘tish
                 </span>
@@ -107,20 +113,25 @@ const Navbar = () => {
           <Wrap.LocationIcon /> Москва
         </Wrap.Location>
         <Wrap.Ul>
-          {data.map(({ id, path, title }) => (
-            <Wrap.Li key={id} active={path === location?.pathname}>
-              <Link className='link' to={path}>
-                {title}
-              </Link>
-            </Wrap.Li>
-          ))}
+          {data.map(
+            ({ id, path, title, hidden }) =>
+              !hidden && (
+                <Wrap.Li key={id} active={path === location?.pathname}>
+                  <Link className="link" to={path}>
+                    {title}
+                  </Link>
+                </Wrap.Li>
+              )
+          )}
         </Wrap.Ul>
-        <Wrap.Kabinet onClick={() => handleOpen('register')}>
+        <Wrap.Kabinet onClick={() => handleOpen("register")}>
           <Wrap.User /> Личный кабинет
         </Wrap.Kabinet>
       </Wrap.Nav>
       <Sort>
-        <Sort.Logo />
+        <Link to={"/home"}>
+          <Sort.Logo />
+        </Link>
         <Sort.Wrap>
           {tip.map((item) => (
             <Sort.Tip key={item}>{item}</Sort.Tip>
@@ -140,15 +151,19 @@ const Navbar = () => {
         </Sort.ContactWrap>
         <Sort.KorzinkaWrap>
           <Sort.Cart />
-          <div className='kor'>
+          <div className="kor">
             <span>Корзина</span>
             <p>7500 ₽</p>
           </div>
         </Sort.KorzinkaWrap>
       </Sort>
-      <div style={{ padding: '0 260px' }}>
+      <div style={{ padding: "0 260px" }}>
         <Outlet />
       </div>
+      <Footer />
+      <Wrap.Circle className={arrow > 70 && "active"} href="#top">
+        <Wrap.Arrow />
+      </Wrap.Circle>
     </Wrap>
   );
 };
