@@ -1,17 +1,21 @@
-import styled from 'styled-components';
-import { ReactComponent as location } from '../../assets/icons/location.svg';
-import { ReactComponent as user } from '../../assets/icons/user.svg';
-import { ReactComponent as search } from '../../assets/icons/search.svg';
-import { ReactComponent as what } from '../../assets/icons/whatsapp.svg';
-import { ReactComponent as telegram } from '../../assets/icons/telegram.svg';
-import { ReactComponent as cart } from '../../assets/icons/cart.svg';
-import Box from '@mui/material/Box';
-import Modal from '@mui/material/Modal';
-import { ReactComponent as cancel } from '../../assets/icons/cancel.svg';
+import styled from "styled-components";
+import { ReactComponent as location } from "../../assets/icons/location.svg";
+import { ReactComponent as user } from "../../assets/icons/user.svg";
+import { ReactComponent as search } from "../../assets/icons/search.svg";
+import { ReactComponent as what } from "../../assets/icons/whatsapp.svg";
+import { ReactComponent as telegram } from "../../assets/icons/telegram.svg";
+import { ReactComponent as cart } from "../../assets/icons/cart.svg";
+import { ReactComponent as arrow } from "../../assets/icons/arrow-top.svg";
+import Box from "@mui/material/Box";
+import Modal from "@mui/material/Modal";
+import { ReactComponent as cancel } from "../../assets/icons/cancel.svg";
 
-import logo from '../../assets/imgs/logo.png';
+import logo from "../../assets/imgs/logo.png";
 export const Wrap = styled.div`
   box-sizing: border-box;
+  .active {
+    top: 87% !important;
+  }
 `;
 Wrap.Nav = styled.nav`
   display: flex;
@@ -48,7 +52,7 @@ Wrap.Li = styled.li`
   line-height: 16px;
   .link {
     font-weight: 600;
-    color: ${({ active }) => (active ? '#437FC8' : '#1e1e1e')};
+    color: ${({ active }) => (active ? "#437FC8" : "#1e1e1e")};
     text-decoration: none;
   }
 `;
@@ -258,20 +262,20 @@ Modals.FooterItem = styled.div`
 `;
 
 export const style = {
-  position: 'absolute',
-  top: '50%',
-  left: '50%',
-  transform: 'translate(-50%, -50%)',
+  position: "absolute",
+  top: "50%",
+  left: "50%",
+  transform: "translate(-50%, -50%)",
   width: 459,
-  bgcolor: 'background.paper',
-  border: '2px solid #000',
+  bgcolor: "background.paper",
+  border: "2px solid #000",
   boxShadow: 24,
 };
 
 export const Flexing = styled.div`
-  width: ${({ main }) => main && '90%'};
-  margin: ${({ main }) => main && '5px 0px 20px 0px'};
-  justify-content: ${({ main }) => main && 'space-between'};
+  width: ${({ main }) => main && "90%"};
+  margin: ${({ main }) => main && "5px 0px 20px 0px"};
+  justify-content: ${({ main }) => main && "space-between"};
   display: flex;
   align-items: center;
 `;
@@ -283,3 +287,22 @@ Flexing.CheckboxItem = styled.div`
   line-height: 17px;
   color: #8894a0;
 `;
+
+// Arrow bottom
+Wrap.Circle = styled.a`
+  position: fixed;
+  top: -100px;
+  right: 2rem;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #e5e5e5;
+  transition: all 0.5s 0s linear;
+  z-index: 1000;
+  cursor: pointer;
+`;
+
+Wrap.Arrow = styled(arrow)``;

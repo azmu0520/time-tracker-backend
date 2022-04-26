@@ -3,6 +3,7 @@ import { Routes, Route } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import HomePage from "../pages/Home";
 import { data } from "../utilits/navbar";
+
 const Root = () => {
   return (
     <Routes>
@@ -12,6 +13,7 @@ const Root = () => {
         ))}
         <Route path="/" element={<HomePage />} />
       </Route>
+
       <Route path={"*"} element={<div>you are lost</div>} />
     </Routes>
   );

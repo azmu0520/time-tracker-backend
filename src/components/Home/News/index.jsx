@@ -1,12 +1,12 @@
 import React from "react";
 import { Container, Grid } from "./style";
 // Imgs
-import new1 from "../../assets/imgs/new1.png";
-import new2 from "../../assets/imgs/new2.png";
-import new3 from "../../assets/imgs/new3.png";
-import new4 from "../../assets/imgs/new4.png";
-import new5 from "../../assets/imgs/new5.png";
-import new6 from "../../assets/imgs/new6.png";
+import new1 from "../../../assets/imgs/new1.png";
+import new2 from "../../../assets/imgs/new2.png";
+import new3 from "../../../assets/imgs/new3.png";
+import new4 from "../../../assets/imgs/new4.png";
+import new5 from "../../../assets/imgs/new5.png";
+import new6 from "../../../assets/imgs/new6.png";
 
 const News = () => {
   return (

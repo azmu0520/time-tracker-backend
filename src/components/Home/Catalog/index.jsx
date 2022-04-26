@@ -1,5 +1,5 @@
 import React from "react";
-import { dataCatalog } from "../../mock/catalog";
+import { dataCatalog } from "../../../mock/catalog";
 import { Box, Container, Flexing, Wrap } from "./style";
 
 export const Catalog = () => {
