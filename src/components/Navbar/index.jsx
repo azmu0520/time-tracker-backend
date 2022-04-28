@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Wrap, Sort, Boxs, Flexing, Modals, style } from "./style";
 import { data } from "../../utilits/navbar";
 import { Link, Outlet, useLocation } from "react-router-dom";
@@ -17,7 +17,7 @@ const Navbar = () => {
   const [{ count }, dispatch] = useCartContext();
 
   const localStorages = localStorage.getItem("token");
-  const [token, setToken] = useState(localStorages || "");
+  const [token] = useState(localStorages || "");
   const handleClose = () => {
     setModal(false);
   };
@@ -138,7 +138,7 @@ const Navbar = () => {
               )
           )}
         </Wrap.Ul>
-        {token == "" ? (
+        {token === "" ? (
           <p onClick={() => handleOpen("register")}>login</p>
         ) : (
           <Wrap.Kabinet>
@@ -168,7 +168,7 @@ const Navbar = () => {
           </Sort.Tel>
         </Sort.ContactWrap>
         <Sort.KorzinkaWrap>
-          <Sort.Sub visible={count == 0 && "none"}>{count}</Sort.Sub>
+          <Sort.Sub visible={count === 0 && "none"}>{count}</Sort.Sub>
           <Sort.Cart onClick={onClearCart} />
           <div className="kor">
             <span>Корзина</span>
