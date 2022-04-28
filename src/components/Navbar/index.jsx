@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Wrap, Sort, Boxs, Flexing, Modals, style } from "./style";
 import { data } from "../../utilits/navbar";
 import { Link, Outlet, useLocation } from "react-router-dom";
@@ -6,6 +6,7 @@ import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
 import Checkbox from "@mui/material/Checkbox";
 import Footer from "../Footer";
+import { useCartContext } from "../../context/Cart/cart";
 
 const Navbar = () => {
   const location = useLocation();
@@ -13,6 +14,10 @@ const Navbar = () => {
   const [modal, setModal] = useState(false);
   const [modalName, setModalName] = useState("");
   const [arrow, setArrow] = useState(0);
+  const [{ count }, dispatch] = useCartContext();
+
+  const localStorages = localStorage.getItem("token");
+  const [token, setToken] = useState(localStorages || "");
   const handleClose = () => {
     setModal(false);
   };
@@ -22,9 +27,18 @@ const Navbar = () => {
   };
   const label = { inputProps: { "aria-label": "Checkbox demo" } };
 
+  const onClearCart = () => {
+    dispatch({ type: "viewCart" });
+  };
   window.addEventListener("scroll", () => {
     setArrow(window.scrollY);
   });
+
+  const getAuth = () => {
+    localStorage.setItem("token", "12345");
+    handleClose();
+    document.location.reload(true);
+  };
 
   return (
     <Wrap id="top">
@@ -59,7 +73,7 @@ const Navbar = () => {
                   Parolni unitdingizmi?
                 </Flexing.CheckboxItem>
               </Flexing>
-              <Button variant="contained" disableElevation>
+              <Button onClick={getAuth} variant="contained" disableElevation>
                 Ro'yhatdan o`tish
               </Button>
               <Modals.FooterItem>
@@ -124,9 +138,13 @@ const Navbar = () => {
               )
           )}
         </Wrap.Ul>
-        <Wrap.Kabinet onClick={() => handleOpen("register")}>
-          <Wrap.User /> Личный кабинет
-        </Wrap.Kabinet>
+        {token == "" ? (
+          <p onClick={() => handleOpen("register")}>login</p>
+        ) : (
+          <Wrap.Kabinet>
+            <Wrap.User /> Личный кабинет
+          </Wrap.Kabinet>
+        )}
       </Wrap.Nav>
       <Sort>
         <Link to={"/home"}>
@@ -150,7 +168,8 @@ const Navbar = () => {
           </Sort.Tel>
         </Sort.ContactWrap>
         <Sort.KorzinkaWrap>
-          <Sort.Cart />
+          <Sort.Sub visible={count == 0 && "none"}>{count}</Sort.Sub>
+          <Sort.Cart onClick={onClearCart} />
           <div className="kor">
             <span>Корзина</span>
             <p>7500 ₽</p>

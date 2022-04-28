@@ -112,6 +112,7 @@ Sort.KorzinkaWrap = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-evenly;
+  position: relative;
   /* flex: 0.8; */
   .kor {
     font-style: normal;
@@ -163,6 +164,24 @@ Sort.Telegram = styled(telegram)`
   margin-bottom: auto;
 `;
 Sort.Cart = styled(cart)``;
+
+Sort.Sub = styled.div`
+  background: #fc413c;
+  width: 18px;
+  height: 18px;
+  display: ${({ visible }) => (visible === "none" ? "none" : "flex")};
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 11px;
+  line-height: 13px;
+  color: #ffffff;
+  position: absolute;
+  top: -3px;
+  left: 4px;
+`;
 
 Sort.Tel = styled.div`
   display: flex;

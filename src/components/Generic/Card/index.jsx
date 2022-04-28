@@ -1,8 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
+import { useCartContext } from "../../../context/Cart/cart";
 import { Container, Imgs, Wrap } from "./style";
 
 //Home pagedan prop ovoti
 export const Card = ({ mt, mb, ml, mr, data }) => {
+  const [active, setActive] = useState(true);
+  const [, dispatch] = useCartContext();
+
+  const AddCart = () => {
+    setActive(false);
+    dispatch({ type: "addCart" });
+  };
+
+  const RemoveCart = () => {
+    setActive(true);
+    dispatch({ type: "removeCart" });
+  };
+
   return (
     <Container mt={mt} ml={ml} mb={mb} mr={mr}>
       <Imgs style={{ backgroundImage: `url(${data?.url})` }}>
@@ -28,9 +42,19 @@ export const Card = ({ mt, mb, ml, mr, data }) => {
         <Wrap.Message />
         <Wrap.Item>{data?.message}</Wrap.Item>
       </Wrap>
-      <Container.Btn bgbtn={data?.bgbtn} width={data?.width}>
-        {data?.btnName}
-      </Container.Btn>
+      {active ? (
+        <Container.Btn
+          onClick={AddCart}
+          bgbtn={data?.bgbtn}
+          width={data?.width}
+        >
+          {data?.btnName}
+        </Container.Btn>
+      ) : (
+        <Container.Btn onClick={RemoveCart} bgbtn="false" width="156">
+          Нет в наличии
+        </Container.Btn>
+      )}
     </Container>
   );
 };

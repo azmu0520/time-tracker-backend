@@ -13,7 +13,7 @@ export const Catalog = () => {
             <Box key={id}>
               <Box.Title>{title}</Box.Title>
               {item.map((value) => {
-                return <Box.Item key={value.key}>{value.name}</Box.Item>;
+                return <Box.Item key={value.id}>{value.name}</Box.Item>;
               })}
               <Flexing>
                 <Flexing.Link>Все товары</Flexing.Link>
