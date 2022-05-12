@@ -6,7 +6,7 @@ import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
 import Checkbox from "@mui/material/Checkbox";
 import Footer from "../Footer";
-import { useCartContext } from "../../context/Cart/cart";
+import { useCartContext } from "../../context/Cart/index";
 
 const Navbar = () => {
   const location = useLocation();

@@ -1,8 +1,6 @@
 import styled from 'styled-components';
 
-export const Container = styled.div`
-  /* padding: 30px 260px; */
-`;
+export const Container = styled.div``;
 
 Container.Header = styled.div`
   font-style: normal;
