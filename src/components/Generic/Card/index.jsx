@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useCartContext } from "../../../context/Cart/cart";
+import { useCartContext } from "../../../context/Cart/index";
 import { Container, Imgs, Wrap } from "./style";
 
 //Home pagedan prop ovoti

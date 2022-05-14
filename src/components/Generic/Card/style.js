@@ -28,7 +28,7 @@ export const Imgs = styled.div`
 
 Imgs.NewBtn = styled.div`
   background: ${({ bgcolor }) => bgcolor && bgcolor};
-  display: ${({ none }) => (none === "true" ? "flex" : "none")};
+  display: ${({ none }) => (none === true ? "flex" : "none")};
   top: ${({ top }) => top && top};
   bottom: ${({ bottom }) => bottom};
   position: absolute;
@@ -98,7 +98,7 @@ Wrap.Item = styled.div`
 `;
 
 Container.Btn = styled.div`
-  background: ${({ bgbtn }) => (bgbtn === "true" ? "#437FC8" : "#999999")};
+  background: ${({ bgbtn }) => (bgbtn === true ? "#437FC8" : "#999999")};
   width: ${({ width }) => width && `${width}px`};
   border-radius: 5px;
   height: 40px;
