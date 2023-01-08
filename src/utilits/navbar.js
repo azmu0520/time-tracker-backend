@@ -1,36 +1,36 @@
 import Generic from '../components/Generic';
-import HomePage from '../pages/Home';
+// import HomePage from '../pages/Home';
 
 export const data = [
   {
     id: 0,
     title: 'Home ',
     path: '/home',
-    Component: HomePage,
+    Component: Generic,
     hidden: true,
   },
   {
     id: 1,
-    title: 'Find Jobs ',
-    path: '/find-jobs',
+    title: 'Offers',
+    path: '/offers',
     Component: Generic,
   },
   {
     id: 2,
-    title: 'Employers Details',
-    path: '/employers-details',
+    title: 'Brand Stories',
+    path: '/brand-stories',
     Component: Generic,
   },
   {
     id: 3,
-    title: 'Candidates',
-    path: '/candidates',
+    title: 'Matchmaking',
+    path: '/matchmaking',
     Component: Generic,
   },
   {
     id: 4,
-    title: 'Blog',
-    path: '/Blog',
+    title: 'Post job',
+    path: '/post-job',
     Component: Generic,
   },
 ];
