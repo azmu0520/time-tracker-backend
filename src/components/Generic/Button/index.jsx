@@ -24,7 +24,6 @@ const GenericButton = ({
   DborderColor,
   children,
 }) => {
-  console.log('running');
   return (
     <Button
       color={color}

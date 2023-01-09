@@ -1,36 +1,31 @@
 @font-face {
-  font-family: 'Proxima-Nova-Black';
-  src: url(./assets/fonts/FontsFree-Net-FontsFree-Net-Proxima-Nova-Black.ttf);
+  font-family: 'OpenSans-Bold';
+  src: url(./assets/fonts/OpenSans-Bold.ttf);
 }
 
 @font-face {
-  font-family: 'Proxima-Nova-Bold';
-  src: url(./assets/fonts/FontsFree-Net-FontsFree-Net-Proxima-Nova-Bold.ttf);
+  font-family: 'OpenSans-Semibold';
+  src: url(./assets/fonts/OpenSans-Semibold.ttf);
 }
 
 @font-face {
-  font-family: 'Proxima-Nova-Sbold';
-  src: url(./assets/fonts/FontsFree-Net-FontsFree-Net-Proxima-Nova-Sbold.ttf);
+  font-family: 'OpenSans-Regular';
+  src: url(./assets/fonts/OpenSans-Regular.ttf);
 }
 
 @font-face {
-  font-family: 'Proxima-Nova-Medium';
-  src: url(./assets/fonts/FontsFree-Net-Proxima-Medium.ttf);
-}
-
-@font-face {
-  font-family: 'Proxima-Nova-Regular';
-  src: url(./assets/fonts/FontsFree-Net-Proxima-Nova-1.ttf);
+  font-family: 'OpenSans-Light';
+  src: url(./assets/fonts/OpenSans-Light.ttf);
 }
 
 :root {
-  --main-font: 'Proxima-Nova-Regular';
-  --font-bold: 'Proxima-Nova-Bold';
-  --font-medium: 'Proxima-Nova-Medium';
-  --font-black: 'Proxima-Nova-Black';
-  --main-color: '#03a84e';
-  --color-text-white: '#fefefe';
-  --color-text-dark: '#656565';
+  --main-font: 'OpenSans-Regular';
+  --font-bold: 'OpenSans-Bold';
+  --font-medium: 'OpenSans-Semibold';
+  --font-black: 'OpenSans-Bold';
+  --main-color: #2c2c2c;
+  --color-text-white: rgba(255, 255, 255, 0.8);
+  --color-text-secondry: rgb(255, 103, 156);
 }
 * {
   margin: 0;
@@ -39,58 +34,39 @@
   font-family: var(--main-font), sans-serif;
   scroll-behavior: smooth;
 }
+body {
+  overflow: hidden;
+}
 
 h1,
 .h1 {
+  font-style: normal;
+  font-size: 24px;
+  line-height: 34px;
   font-family: var(--font-medium);
-  font-size: 50px;
-  line-height: 65px;
-  color: #fefefe;
+  color: var(--color-text-white);
 }
 
 h2,
 .h2 {
-  font-style: normal;
-  font-size: 40px;
-  line-height: 60px;
-  color: #fff;
-}
-
-h3,
-.h3 {
-  font-style: normal;
-  font-size: 30px;
-  line-height: 36px;
-  color: #272a33;
-}
-
-h4,
-.h4 {
-  font-style: normal;
-  font-size: 28px;
-  line-height: 34px;
-  color: #fff;
-}
-
-p,
-.p {
-  font-style: normal;
-  font-size: 16px;
-  line-height: 28px;
-  color: #656565;
+  font-size: 18px;
+  line-height: 26px;
+  color: var(--color-text-white);
+  font-family: var(--font-medium);
 }
 
 a {
-  text-transform: capitalize;
   font-size: 16px;
   font-weight: 400;
   text-decoration: none;
+  color: inherit;
 }
 
 span,
 .span {
-  font-size: 16px;
+  font-size: 14px;
+  font-family: var(--font-medium);
   font-weight: 400;
-  letter-spacing: 1px;
-  color: #fff;
+  line-height: 20px;
+  color: var(--color-text-white);
 }

@@ -1,56 +1,145 @@
 import styled from 'styled-components';
+import { ReactComponent as Arrow } from '../../assets/icons/arrow-down.svg';
+import { ReactComponent as Tick } from '../../assets/icons/tick.svg';
+import { ReactComponent as IconMenu } from '../../assets/icons/menu.svg';
+import { Drawer } from 'antd';
 export const Wrap = styled.header`
   display: flex;
-  width: 100%;
-  height: 90px;
-  background-color: rgb(133 181 164 / 20%);
-  position: fixed;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-  z-index: 1;
-  top: 0;
-`;
-
-export const Container = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  max-width: 1200px;
-  width: 100%;
-  margin: 0 auto;
-  .register__btn__icon {
-    font-weight: 700;
-    margin-right: 5px;
-  }
-`;
-
-Wrap.Logo = styled.img`
-  max-width: 65px;
-`;
-
-Wrap.LogoWrap = styled.div`
-  position: relative;
-  align-items: center;
-  display: flex;
-
-  span {
-    font-size: 28px;
-    background: -webkit-linear-gradient(#fff, #03a84e, #fff) !important;
-    -webkit-background-clip: text !important;
-    -webkit-text-fill-color: transparent !important;
-    font-family: var(--font-bold);
-  }
-`;
-
-Wrap.Links = styled.ul`
-  display: flex;
-  width: 60%;
-  justify-content: space-between;
   /* align-items: center; */
-  list-style: none;
-  a {
-    color: inherit;
-    font-size: 16px !important;
+  width: 100%;
+  height: 68px;
+  padding: 0 24px;
+  border-bottom: 1px solid #3c3c3c;
+  justify-content: space-between;
+  background: var(--main-color);
+  position: relative;
+`;
+
+export const Content = styled.div`
+  display: flex;
+  align-items: center;
+`;
+
+Content.Logo = styled.h1``;
+Content.Text = styled.span`
+  margin-left: 16px;
+`;
+Content.SwitchMode = styled.div``;
+export const Links = styled.div`
+  display: flex;
+  /* align-items: center; */
+  gap: 10px;
+
+  .selectAnt > .ant-select-selector {
+    background-color: transparent !important;
   }
 `;
 
-Wrap.Regsiter = styled.div``;
+Links.Wrap = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 10px;
+`;
+
+Links.Link = styled.span`
+  color: var(--color-text-white);
+`;
+
+Links.Register = styled.div`
+  display: flex;
+`;
+
+Links.ArrowIcon = styled(Arrow)`
+  width: 1.5rem;
+  height: 1.5rem;
+  path {
+    fill: #fff;
+  }
+`;
+export const Modal = styled.div`
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  opacity: 1;
+  width: 230px;
+  height: 333px;
+  background: #2c2c2c;
+  transform: ${({ modal }) => (modal == true ? 'none' : 'scale(0)')};
+  transition: opacity 2ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
+    transform 213ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  top: 100%;
+  right: 0;
+  transform-origin: 122px -50px;
+  box-shadow: 0px 5px 5px -3px rgb(0 0 0 / 20%),
+    0px 8px 10px 1px rgb(0 0 0 / 14%), 0px 3px 14px 2px rgb(0 0 0 / 12%);
+  border-radius: 4px;
+`;
+export const Currency = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  border-left: 1px solid #3c3c3c;
+  border-right: 1px solid #3c3c3c;
+  cursor: pointer;
+  :hover {
+    background-color: #202020;
+  }
+`;
+
+Currency.Selected = styled.span`
+  /* position: absolute; */
+  display: flex;
+  color: #9e9e9e;
+`;
+
+Currency.Mtitle = styled.h3`
+  font-size: 16px;
+  font-weight: 600;
+  color: #9e9e9e;
+  margin-bottom: 10px;
+  padding: 12px 16px 8px;
+`;
+Currency.Options = styled.span`
+  margin: 4px 16px;
+  display: flex;
+  padding: 8px 12px;
+  background: ${({ active }) => (active ? 'rgb(57, 57, 57)' : '')};
+  border-radius: 12px;
+  justify-content: space-between;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
+    box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
+    border 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  :hover {
+    background-color: rgba(255, 255, 255, 0.04);
+  }
+`;
+Currency.Tick = styled(Tick)`
+  width: 20px;
+  path {
+    fill: var(--color-text-secondry);
+  }
+`;
+export const Menu = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+`;
+
+Menu.IconMenu = styled(IconMenu)`
+  width: 40px;
+  height: 40px;
+  margin-right: -5px;
+  cursor: pointer;
+  border-radius: 50%;
+  padding: 8px;
+  path {
+    fill: #9e9e9e;
+  }
+  :hover {
+    background-color: #202020;
+  }
+`;
+
+Menu.Drawer = styled(Drawer)``;
