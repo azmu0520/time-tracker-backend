@@ -2,13 +2,14 @@ import styled from 'styled-components';
 
 export const Button = styled.button`
   position: relative;
+  display: flex;
+  align-items: center;
   width: ${({ width }) => (width ? width : 'fit-content')};
   height: ${({ height }) => (height ? height : '48px')};
   font-size: ${({ fontSize }) => (fontSize ? fontSize : '14px')};
   cursor: pointer;
   box-shadow: ${({ box }) => (box ? box : '#000')};
   color: ${({ color }) => (color ? color : '#000')};
-  font-size: var(--main-font);
   background: ${({ background }) => (background ? background : '#03a84e')};
   text-align: ${({ textAlign }) => (textAlign ? textAlign : 'center')};
   padding: ${({ padding }) => (padding ? padding : '4px 15px')};

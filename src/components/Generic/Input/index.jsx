@@ -18,7 +18,6 @@ const GenericInput = ({
   padding,
   type,
 }) => {
-  console.log('running');
   return (
     <Input
       color={color}

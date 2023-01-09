@@ -1,31 +1,27 @@
 import React from 'react';
-import { Select } from './style';
+import { AntSelect } from './style';
 const GenericSelect = ({
-  children,
-  width,
-  height,
-  size,
-  color,
-  background,
-  padding,
-  margin,
-  border,
-  radius,
+  defaultValue,
+  style,
+  onChange,
+  options,
+  className,
+  bordered,
+  showArrow,
+  dropdownStyle,
+  // disabled,
 }) => {
   return (
-    <Select
-      width={width}
-      height={height}
-      size={size}
-      color={color}
-      background={background}
-      padding={padding}
-      margin={margin}
-      border={border}
-      radius={radius}
-    >
-      {children}
-    </Select>
+    <AntSelect
+      className={className}
+      defaultValue={defaultValue}
+      style={style}
+      onChange={onChange}
+      options={options}
+      showArrow={showArrow}
+      bordered={bordered}
+      dropdownStyle={dropdownStyle}
+    />
   );
 };
 
