@@ -2,6 +2,8 @@ import styled from 'styled-components';
 import { ReactComponent as Arrow } from '../../assets/icons/arrow-down.svg';
 import { ReactComponent as Tick } from '../../assets/icons/tick.svg';
 import { ReactComponent as IconMenu } from '../../assets/icons/menu.svg';
+import { ReactComponent as User } from '../../assets/icons/user.svg';
+import { ReactComponent as Case } from '../../assets/icons/case.svg';
 import { Drawer } from 'antd';
 export const Wrap = styled.header`
   display: flex;
@@ -61,15 +63,17 @@ export const Modal = styled.div`
   flex-direction: column;
   position: absolute;
   opacity: 1;
-  width: 230px;
-  height: 333px;
+  width: ${({ width }) => (width ? width : '313px')};
+  padding: ${({ width }) => (width ? '' : '8px 16px')};
+  height: fit-content;
   background: #2c2c2c;
   transform: ${({ modal }) => (modal == true ? 'none' : 'scale(0)')};
-  transition: opacity 2ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
+  transition: opacity 2ms cubic-bezier(0.4, 0, 0.2, 1) 2ms,
     transform 213ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
-  top: 100%;
-  right: 0;
-  transform-origin: 122px -50px;
+
+  top: ${({ width }) => (width ? '100%' : '120%')};
+  right: ${({ width }) => (width ? '0' : '8.5em')};
+  transform-origin: 110px 0px;
   box-shadow: 0px 5px 5px -3px rgb(0 0 0 / 20%),
     0px 8px 10px 1px rgb(0 0 0 / 14%), 0px 3px 14px 2px rgb(0 0 0 / 12%);
   border-radius: 4px;
@@ -143,3 +147,50 @@ Menu.IconMenu = styled(IconMenu)`
 `;
 
 Menu.Drawer = styled(Drawer)``;
+
+Modal.SignIn = styled.div``;
+
+Modal.SignDev = styled.div`
+  width: 100%;
+  margin: 8px 0px;
+  display: flex;
+  align-items: center;
+  padding: 12px 22px;
+  text-align: left;
+  font-weight: 600;
+  white-space: nowrap;
+  border-radius: 5px;
+  letter-spacing: 0;
+  justify-content: start;
+  background: #393939;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
+    box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
+    border 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  :hover {
+    background-color: rgba(255, 255, 255, 0.04);
+    cursor: pointer;
+  }
+`;
+
+Menu.User = styled(User)`
+  width: 48px;
+  height: 48px;
+  padding: 12px;
+  margin-right: 16px;
+  border-radius: 50%;
+  path {
+    fill: rgb(240, 98, 146);
+  }
+  background-color: rgb(57, 57, 57);
+`;
+Menu.Case = styled(Case)`
+  width: 48px;
+  height: 48px;
+  padding: 12px;
+  margin-right: 16px;
+  border-radius: 50%;
+  path {
+    fill: rgb(171, 71, 188);
+  }
+  background-color: white;
+`;
