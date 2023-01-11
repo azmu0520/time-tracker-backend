@@ -1,12 +1,12 @@
 import Generic from '../components/Generic';
-// import HomePage from '../pages/Home';
+import HomePage from '../pages/Home';
 
 export const data = [
   {
     id: 0,
     title: 'Home ',
     path: '/home',
-    Component: Generic,
+    Component: HomePage,
     hidden: true,
   },
   {

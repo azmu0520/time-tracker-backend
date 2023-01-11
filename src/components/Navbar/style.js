@@ -4,16 +4,18 @@ import { ReactComponent as Tick } from '../../assets/icons/tick.svg';
 import { ReactComponent as IconMenu } from '../../assets/icons/menu.svg';
 import { ReactComponent as User } from '../../assets/icons/user.svg';
 import { ReactComponent as Case } from '../../assets/icons/case.svg';
+import { ReactComponent as Dark } from '../../assets/icons/dark.svg';
+import { ReactComponent as Light } from '../../assets/icons/light.svg';
 import { Drawer } from 'antd';
 export const Wrap = styled.header`
   display: flex;
-  /* align-items: center; */
   width: 100%;
   height: 68px;
   padding: 0 24px;
   border-bottom: 1px solid #3c3c3c;
+  border-color: ${({ theme }) => theme.secodry__bg};
   justify-content: space-between;
-  background: var(--main-color);
+  background: ${({ theme }) => theme.bg};
   position: relative;
 `;
 
@@ -22,16 +24,63 @@ export const Content = styled.div`
   align-items: center;
 `;
 
-Content.Logo = styled.h1``;
+Content.Logo = styled.h1`
+  color: ${({ theme }) => theme.primary__text};
+  font-family: var(--font-black);
+`;
 Content.Text = styled.span`
+  color: ${({ theme }) => theme.text};
   margin-left: 16px;
 `;
-Content.SwitchMode = styled.div``;
+export const Mode = styled.div`
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 50px;
+  height: 26px;
+  background-color: ${({ theme }) => theme.secodry__bg};
+
+  transition: background-color 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  border-radius: 26px;
+  margin-left: 10px;
+`;
+
+Mode.Dark = styled(Dark)`
+  position: absolute;
+  opacity: ${({ active }) => (active ? '1' : '0')};
+  width: 22px;
+  cursor: pointer;
+  height: 22px;
+  padding: 3px;
+  background: #2c2c2c;
+  border-radius: 26px;
+  path {
+    fill: #e0e0e0;
+  }
+  margin-left: ${({ active }) => (active ? '50%' : '0')};
+  margin-right: 2px;
+  transition: all 0.4s linear;
+`;
+Mode.Light = styled(Light)`
+  position: absolute;
+  width: 22px;
+  cursor: pointer;
+  height: 22px;
+  padding: 3px;
+  background: #e4e8f0;
+  border-radius: 26px;
+  path {
+    fill: #757575;
+  }
+  margin-left: 2px;
+  opacity: ${({ active }) => (active ? '1' : '0')};
+  left: ${({ active }) => (active ? '0' : '50%')};
+  transition: all 0.4s linear;
+`;
+
 export const Links = styled.div`
   display: flex;
-  /* align-items: center; */
   gap: 10px;
-
   .selectAnt > .ant-select-selector {
     background-color: transparent !important;
   }
@@ -44,7 +93,7 @@ Links.Wrap = styled.div`
 `;
 
 Links.Link = styled.span`
-  color: var(--color-text-white);
+  color: ${({ theme }) => theme.text};
 `;
 
 Links.Register = styled.div`
@@ -66,7 +115,7 @@ export const Modal = styled.div`
   width: ${({ width }) => (width ? width : '313px')};
   padding: ${({ width }) => (width ? '' : '8px 16px')};
   height: fit-content;
-  background: #2c2c2c;
+  background: ${({ theme }) => theme.bg};
   transform: ${({ modal }) => (modal == true ? 'none' : 'scale(0)')};
   transition: opacity 2ms cubic-bezier(0.4, 0, 0.2, 1) 2ms,
     transform 213ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
@@ -85,6 +134,7 @@ export const Currency = styled.div`
   width: 60px;
   border-left: 1px solid #3c3c3c;
   border-right: 1px solid #3c3c3c;
+  border-color: ${({ theme }) => theme.secodry__bg};
   cursor: pointer;
   :hover {
     background-color: #202020;
@@ -92,7 +142,6 @@ export const Currency = styled.div`
 `;
 
 Currency.Selected = styled.span`
-  /* position: absolute; */
   display: flex;
   color: #9e9e9e;
 `;
@@ -162,13 +211,18 @@ Modal.SignDev = styled.div`
   border-radius: 5px;
   letter-spacing: 0;
   justify-content: start;
-  background: #393939;
+  background: ${({ theme }) => theme.signInBg};
+  border: 1px solid #e4e8f0;
+  border-color: ${({ theme }) => theme.border__color};
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
     box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
     border 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   :hover {
     background-color: rgba(255, 255, 255, 0.04);
     cursor: pointer;
+  }
+  span {
+    color: ${({ theme }) => theme.text};
   }
 `;
 
@@ -181,7 +235,7 @@ Menu.User = styled(User)`
   path {
     fill: rgb(240, 98, 146);
   }
-  background-color: rgb(57, 57, 57);
+  background-color: ${({ theme }) => theme.bg};
 `;
 Menu.Case = styled(Case)`
   width: 48px;

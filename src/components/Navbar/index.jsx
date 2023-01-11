@@ -1,16 +1,16 @@
-import React, { useState, useRef, useEffect } from 'react';
-import { Wrap, Content, Links, Currency, Modal, Menu } from './style';
+import React, { useState, useRef, useEffect, useContext } from 'react';
+import { Wrap, Content, Links, Currency, Modal, Menu, Mode } from './style';
 import { data } from '../../utilits/navbar';
 import { NavLink, Outlet } from 'react-router-dom';
 import Button from '../Generic/Button';
+import { ThemeContext } from '../../root';
+
 export default function Navbar() {
   let [curr, setCurr] = useState('USD');
   const [modal, setModal] = useState(false);
   const [sign, setSign] = useState(false);
   const [drawer, setDrawer] = useState(false);
-
   const ref = useRef(null);
-  const ref2 = useRef(null);
   let options = [
     {
       value: 'uz',
@@ -40,12 +40,17 @@ export default function Navbar() {
   const onClose = () => {
     setDrawer(false);
   };
+  let { mode, setMode } = useContext(ThemeContext);
   return (
     <>
       <Wrap>
         <Content>
-          <Content.Logo>Ish Bor</Content.Logo>
+          <Content.Logo>Ish Bor </Content.Logo>
           <Content.Text>#1 Job Board for tech industry in Asia</Content.Text>
+          <Mode onClick={() => setMode(mode === 'light' ? 'dark' : 'light')}>
+            <Mode.Dark active={mode == 'dark'} />
+            <Mode.Light active={mode == 'light'} />
+          </Mode>
         </Content>
         <Links>
           <Links.Wrap>
@@ -77,9 +82,6 @@ export default function Navbar() {
             <Modal.SignDev>
               <Menu.Case /> <span>Sign in to Employer Panel</span>
             </Modal.SignDev>
-            {/* <Currency.Options>
-              
-            </Currency.Options> */}
           </Modal>
           <Currency ref={ref} onClick={() => setModal(!modal)}>
             <Currency.Selected>{curr}</Currency.Selected>
