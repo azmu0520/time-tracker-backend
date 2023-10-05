@@ -1,16 +1,16 @@
 const express = require("express");
-const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
-const cors = require("cors");
-require("dotenv").config();
-
+const bodyParser = require("body-parser");
 const app = express();
-app.use(cors({ origin: "*" }));
-const port = process.env.PORT || 5050;
-app.use(bodyParser.json());
+const cors = require("cors");
+const dotenv = require("dotenv");
 
-const uri = process.env.DB;
-app.use(express.json());
+// enable cors
+app.use(cors({ origin: "*" }));
+
+// env config
+dotenv.config();
+
 // MongoDB database
 mongoose
   .connect(uri, {
@@ -20,9 +20,21 @@ mongoose
   .then(() => console.log("MongoDb connected"))
   .catch((err) => console.log("Connection Failed", err?.message));
 
+// Set Port
+const port = process.env.PORT || 5050;
+const uri = process.env.DB;
+
+// Middleware
+app.use(express.json());
+
+app.use(bodyParser.json());
+
 // Routes here
+
 const projectRoutes = require("./routes/project");
 const taskRoutes = require("./routes/task");
+
+// Route Middlewares
 
 app.use("/api/projects", projectRoutes);
 app.use("/api/tasks", taskRoutes);
