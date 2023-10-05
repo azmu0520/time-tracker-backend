@@ -12,6 +12,8 @@ app.use(cors({ origin: "*" }));
 dotenv.config();
 
 // MongoDB database
+const uri = process.env.DB;
+
 mongoose
   .connect(uri, {
     useNewUrlParser: true,
@@ -22,7 +24,6 @@ mongoose
 
 // Set Port
 const port = process.env.PORT || 5050;
-const uri = process.env.DB;
 
 // Middleware
 app.use(express.json());
