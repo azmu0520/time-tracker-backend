@@ -3,14 +3,12 @@ const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const cors = require("cors");
 require("dotenv").config();
-const projectRoutes = require("./routes/project");
-const taskRoutes = require("./routes/task");
 
 const app = express();
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 5050;
 
 app.use(bodyParser.json());
-app.use(cors());
+app.use(cors({ origin: "*" }));
 
 const uri = process.env.DB;
 
@@ -24,6 +22,12 @@ mongoose
   .catch((err) => console.log("Connection Failed", err?.message));
 
 // Routes here
+const projectRoutes = require("./routes/project");
+const taskRoutes = require("./routes/task");
+
+app.use("/api/projects", projectRoutes);
+app.use("/api/tasks", taskRoutes);
+
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });

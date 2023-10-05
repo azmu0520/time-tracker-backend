@@ -4,7 +4,7 @@ const getAllProjects = async (req, res) => {
   try {
     const projects = await Project.find();
 
-    res.status(200).json(projects);
+    res.status(200).json({ data: projects });
   } catch (error) {
     console.log(error);
     res.status(500).json(error);
