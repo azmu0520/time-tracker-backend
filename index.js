@@ -10,7 +10,7 @@ const port = process.env.PORT || 5050;
 app.use(bodyParser.json());
 
 const uri = process.env.DB;
-
+app.use(express.json());
 // MongoDB database
 mongoose
   .connect(uri, {
