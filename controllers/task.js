@@ -1,8 +1,9 @@
-const task = require("../models/task");
+const Task = require("../models/task");
+const Project = require("../models/project");
 
 const getAllTasks = async (req, res) => {
   try {
-    const tasks = await task.find();
+    const tasks = await Task.find();
 
     res.status(200).json(tasks);
   } catch (error) {
@@ -15,7 +16,7 @@ const getSingleTask = async (req, res) => {
   const taskId = req.params.taskId;
 
   try {
-    const tasks = await task.findById(taskId);
+    const tasks = await Task.findById(taskId);
 
     res.status(200).json(tasks);
   } catch (error) {
@@ -25,12 +26,17 @@ const getSingleTask = async (req, res) => {
 };
 
 const createTask = async (req, res) => {
-  const { title, sub_title } = req.body;
-
+  const { projectId } = req.body;
   try {
-    const newTask = new task({ title, sub_title });
+    const newTask = new Task(req.body);
     await newTask.save();
-
+    let selectedProject = await Project.findByIdAndUpdate(
+      { _id: projectId },
+      {
+        $push: { tasks: newTask },
+      },
+      { new: true }
+    );
     res.status(201).json({ msg: "Task Successfully created!" });
   } catch (error) {
     console.log(error);

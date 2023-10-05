@@ -5,10 +5,9 @@ const cors = require("cors");
 require("dotenv").config();
 
 const app = express();
-const port = process.env.PORT || 5050;
-
-app.use(bodyParser.json());
 app.use(cors({ origin: "*" }));
+const port = process.env.PORT || 5050;
+app.use(bodyParser.json());
 
 const uri = process.env.DB;
 
