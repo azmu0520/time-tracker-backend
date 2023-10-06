@@ -3,7 +3,6 @@ const Project = require("../models/project");
 const getAllProjects = async (req, res) => {
   try {
     const projects = await Project.find().populate("tasks");
-    console.log(projects);
     res.status(200).json({ data: projects });
   } catch (error) {
     console.log(error);

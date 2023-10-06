@@ -26,17 +26,18 @@ const getSingleTask = async (req, res) => {
 };
 
 const createTask = async (req, res) => {
-  const { projectId } = req.body;
+  const { project_id } = req.body;
   try {
     const newTask = new Task(req.body);
     await newTask.save();
-    let selectedProject = await Project.findByIdAndUpdate(
-      { _id: projectId },
+    await Project.findByIdAndUpdate(
+      { _id: project_id },
       {
         $push: { tasks: newTask },
       },
       { new: true }
     );
+
     res.status(201).json({ msg: "Task Successfully created!" });
   } catch (error) {
     console.log(error);
