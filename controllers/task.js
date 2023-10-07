@@ -12,12 +12,11 @@ const getAllTasks = async (req, res) => {
   }
 };
 
-const getSingleTask = async (req, res) => {
-  const taskId = req.params.taskId;
+const getTasksById = async (req, res) => {
+  const { project_id } = req.params;
 
   try {
-    const tasks = await Task.findById(taskId);
-
+    const tasks = await Task.find({ project_id: project_id });
     res.status(200).json(tasks);
   } catch (error) {
     console.log(error);
@@ -26,18 +25,9 @@ const getSingleTask = async (req, res) => {
 };
 
 const createTask = async (req, res) => {
-  const { project_id } = req.body;
   try {
     const newTask = new Task(req.body);
     await newTask.save();
-    await Project.findByIdAndUpdate(
-      { _id: project_id },
-      {
-        $push: { tasks: newTask },
-      },
-      { new: true }
-    );
-
     res.status(201).json({ msg: "Task Successfully created!" });
   } catch (error) {
     console.log(error);
@@ -46,19 +36,25 @@ const createTask = async (req, res) => {
 };
 
 const updateTaskTime = async (req, res) => {
-  const { task_id } = req.body;
+  const { task_id, time, sheet } = req.body;
   try {
     await Task.findByIdAndUpdate(
       task_id,
       {
+        $push: {
+          timeSheet: time,
+        },
         $set: {
-          time: "asda",
+          totalTime: [...sheet, time].reduce((prev, next) => prev + next, 0),
         },
       },
       { new: true }
     );
+
     res.status(200).json({ msg: "Task Successfully updated!" });
-  } catch (error) {}
+  } catch (error) {
+    console.log(error);
+  }
 };
 
-module.exports = { getAllTasks, getSingleTask, createTask, updateTaskTime };
+module.exports = { getAllTasks, getTasksById, createTask, updateTaskTime };

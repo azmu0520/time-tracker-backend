@@ -4,8 +4,9 @@ const taskSchema = new mongoose.Schema({
   title: String,
   sub_title: String,
   time: String,
-  projectId: String,
+  project_id: String,
   timeSheet: [],
+  totalTime: String,
 });
 
 const Task = mongoose.model("Task", taskSchema);
