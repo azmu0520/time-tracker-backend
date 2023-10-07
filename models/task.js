@@ -3,8 +3,9 @@ const mongoose = require("mongoose");
 const taskSchema = new mongoose.Schema({
   title: String,
   sub_title: String,
-  time: Date,
+  time: String,
   projectId: String,
+  timeSheet: [],
 });
 
 const Task = mongoose.model("Task", taskSchema);

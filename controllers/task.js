@@ -44,4 +44,21 @@ const createTask = async (req, res) => {
     res.status(500).json(error);
   }
 };
-module.exports = { getAllTasks, getSingleTask, createTask };
+
+const updateTaskTime = async (req, res) => {
+  const { task_id } = req.body;
+  try {
+    await Task.findByIdAndUpdate(
+      task_id,
+      {
+        $set: {
+          time: "asda",
+        },
+      },
+      { new: true }
+    );
+    res.status(200).json({ msg: "Task Successfully updated!" });
+  } catch (error) {}
+};
+
+module.exports = { getAllTasks, getSingleTask, createTask, updateTaskTime };
