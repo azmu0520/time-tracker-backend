@@ -26,8 +26,33 @@ const getTasksById = async (req, res) => {
 
 const createTask = async (req, res) => {
   try {
-    const newTask = new Task(req.body);
+    const {
+      title,
+      sub_title,
+      time,
+      timeSheet,
+      totalTime,
+      project_id,
+      user_id,
+    } = req.body;
+
+    const project = await Project.findById(project_id);
+    if (!project) {
+      return res.status(404).json({ error: "Project not found" });
+    }
+    const newTask = new Task({
+      title,
+      sub_title,
+      time,
+      timeSheet,
+      totalTime,
+      project_id,
+      user_id,
+    });
     await newTask.save();
+
+    project.tasks.push(newTask);
+    await project.save();
     res.status(201).json({ msg: "Task Successfully created!" });
   } catch (error) {
     console.log(error);
