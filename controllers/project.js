@@ -1,4 +1,5 @@
 const Project = require("../models/project");
+const User = require("../models/user");
 
 const getAllProjects = async (req, res) => {
   try {
@@ -24,10 +25,14 @@ const getSingleProject = async (req, res) => {
 };
 
 const createProject = async (req, res) => {
-  const { title, sub_title } = req.body;
+  const { title, sub_title, created_by } = req.body;
 
   try {
-    const newProject = new Project({ title, sub_title });
+    const user = await User.findById(created_by);
+    if (!user) {
+      return res.status(404).json({ error: "User not found" });
+    }
+    const newProject = new Project({ title, sub_title, created_by });
     await newProject.save();
 
     res.status(201).json({ msg: "Project Successfully created!" });
